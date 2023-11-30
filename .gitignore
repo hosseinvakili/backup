@@ -1,0 +1,5 @@
+/vendor
+/zipped
+*.sql
+*.zip
+.env.local

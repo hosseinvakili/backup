@@ -41,7 +41,7 @@ foreach ($_ENV['BACKUPS'] as $backup)
 }
 
 foreach ($_ENV['DATABASES'] as $database) {
-	shell_exec('mariadb-dump --user=root --password=root --lock-tables ' . $database . ' > ' . $database .'.sql');
+	shell_exec('mariadb-dump --user=' . $_ENV['DATABASE_USER'] . ' --password=' . $_ENV['DATABASE_PASSWORD'] . ' --lock-tables ' . $database . ' > ' . $database .'.sql');
 	shell_exec('zip ' . $_ENV['ZIPPED_PATH'] . '/' . $database . '.sql.zip ' . $database . '.sql');
 	shell_exec('rm ' . $database . '.sql');
 
